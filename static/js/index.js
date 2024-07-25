@@ -13,17 +13,11 @@ function carga_datos() {
 }
 
 function mostrar_datos() {
-    console.log("Displaying data...");
-    var divBody = document.getElementById("container");
+    var divBody = document.getElementById("containerCard");
     divBody.innerHTML = ''
     db_peliculas.forEach((e) => {
         let divcard = document.createElement('div');
-        divcard.style.width = "18rem";
-        divcard.style.padding = "2px";
-        divcard.style.background = "white";
-        divcard.style.borderColor = "black";
-        divcard.style.borderStyle = "solid";
-        divcard.className = "col";
+        divcard.className = "card";
         let caratula = document.createElement("img");
         caratula.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvTs8O9rWjP0cWAxVHelhq4kBUUxkOTtzreA&s";
         caratula.style.width = "250px";
@@ -47,6 +41,7 @@ function mostrar_datos() {
         divcard.appendChild(cardbody);
         divBody.appendChild(divcard);
     });
+    
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
