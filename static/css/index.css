@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,500;1,500&display=swap');
+
+*{
+    font-family: "Roboto Condensed", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-width: 100vh;
+    background: rgb(39, 39, 42);
+    background-position: center;
+}
+/* header css*/
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.3rem 10%;
+    background: rgb(57, 70, 242);
+    display: flex;
+    justify-content: space-between;
+}
+
+.header img{
+    width: 40px;
+    height: 40px;
+}
+
+/*--------------------*/
+/* logo css*/
+.logo{
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/*--------------------*/
+
+/* navbar css*/
+.navbar{
+    padding: 0px;
+}
+.navbar a{
+    font-size: 1.15rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 2.5rem;
+}
+
+/*--------------------*/
+/* menu css*/
+.menu-icon{
+    position: absolute;
+    right: 5%;
+    font-size: 2.8rem;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+/*--------------------*/
+/* div Card CSS */
+.ultimos_estrenos{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+}
+.ultimos_estrenos h3{
+    text-align: center;
+    color: white;
+}
+
+.grid{
+    margin-top: 100px;
+}
+
+@media (max-width: 992px){
+    .header{
+        padding: 1.3rem 5%;
+    }
+}
+
+@media (max-width: 768px){
+    .menu-icon{
+        display: inline-flex;
+    }
+    
+    #check:checked~.menu-icon #open-icon{
+       display: none; 
+    }
+
+    .menu-icon #close-icon{
+        display: none;
+    }
+
+    #check:checked~.menu-icon #close-icon{
+        display: block; 
+     }
+    .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: rgb(57, 70, 242);
+        overflow: hidden;
+        transition: .4s ease;
+    }
+
+    #check:checked~.navbar {
+        height: 17.7rem;
+    }
+    .navbar a {
+        display: block;
+        width: 100%;
+        font-size: 1.5rem 0;
+        text-align: center;
+        
+    }
+}

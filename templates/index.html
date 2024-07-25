@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Memetflix</title>
+</head>
+<body  onload="carga_datos()">
+  <header class="header">
+    <a href="" class="logo"> <img src="{{ url_for('static', filename='img/logo1.png')}}"> MEMETFLIX</a>
+    <input type="checkbox" id="check">
+    <label for="check" class="menu-icon">
+      <i class='bx bx-menu' id="open-icon"></i>
+      <i class='bx bx-x' id="close-icon"></i>
+    </label>
+    <nav class="navbar">
+      <a href="#">Inicio</a>
+      <a href="#">Explorar</a>
+      <a href="#">Noticias</a>   
+      <a href="#">Login</a>
+    </nav>
+  </header>
+  <div class="ultimos_estrenos">
+    <h3> Ultimos Estrenos</h3>
+    <div id="container" class="grid">
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Datos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/agregarPelicula.css') }}"></linkrel>
+</head>
+<body>
+    <div class="container">
+        <form id="form-añadir">
+            <h2>Añadir Pelicula</h2>
+            <label>Ingrese el nombre: </label>
+            <input id="nombre_pelicula"   placeholder="Ingrese nombre">
+            <label> ingrese la categoria: </label>
+            <input id="genero_pelicula" placeholder="Ingrese Categoria">
+            <button type="submit">Añadir</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/agregarPelicula.js') }}"></script>
+</body>
+</html>
