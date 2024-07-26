@@ -16,6 +16,8 @@ function mostrar_datos() {
     var divBody = document.getElementById("containerCard");
     divBody.innerHTML = ''
     db_peliculas.forEach((e) => {
+        let div2 = document.createElement("div");
+        div2.className = "col-12 col-lg-4 mb-4";
         let divcard = document.createElement('div');
         divcard.className = "card";
         let caratula = document.createElement("img");
@@ -39,7 +41,8 @@ function mostrar_datos() {
         masdetalles.style.borderRadius = "4px";
         cardbody.appendChild(masdetalles);
         divcard.appendChild(cardbody);
-        divBody.appendChild(divcard);
+        div2.appendChild(divcard)
+        divBody.appendChild(div2);
     });
     
 }

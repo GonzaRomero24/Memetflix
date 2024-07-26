@@ -9,25 +9,39 @@
     <title>Memetflix</title>
 </head>
 <body  onload="carga_datos()">
-  <header class="header">
-    <a href="" class="logo"> <img src="{{ url_for('static', filename='img/logo1.png')}}"> MEMETFLIX</a>
-    <input type="checkbox" id="check">
-    <label for="check" class="menu-icon">
-      <i class='bx bx-menu' id="open-icon"></i>
-      <i class='bx bx-x' id="close-icon"></i>
-    </label>
-    <nav class="navbar">
-      <a href="#">Inicio</a>
-      <a href="#">Explorar</a>
-      <a href="#">Noticias</a>   
-      <a href="/login">Login</a>
-    </nav>
-  </header>
-  <div class="containerEstrenos">
-    <h3> Ultimos Estrenos</h3>
-    <div class="containerCard" id="containerCard">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="containerEstrenos container">
+    <div class="d-flex flex-wrap justify-content-center">
+      <h3> Ultimos Estrenos</h3>
+      <div class="containerCard row" id="containerCard">
+      </div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  
 </body>
 </html>
