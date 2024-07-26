@@ -163,13 +163,3 @@ body{
         padding: 0 10px;
     }
 }
-
-@media (max-width: 480px) {
-    .navbar a {
-        font-size: 1.2rem; /* Reducir tamaño de fuente en pantallas más pequeñas */
-    }
-
-    .card {
-        padding: 0 5px; /* Ajustar padding en pantallas muy pequeñas */
-    }
-}
