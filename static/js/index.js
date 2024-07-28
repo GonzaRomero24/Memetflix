@@ -1,7 +1,6 @@
 let db_peliculas = [];
 
 function carga_datos() {
-    console.log("Fetching data...");
     fetch("/get")
         .then(response => response.json())
         .then(data => {
@@ -9,7 +8,7 @@ function carga_datos() {
             console.log("Data received:", db_peliculas);
             mostrar_datos();
         })
-        .catch(error => console.error('Error fetching data:', error));
+        .catch(error => console.error('Error data:', error));
 }
 
 function mostrar_datos() {
