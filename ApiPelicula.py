@@ -6,6 +6,7 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config["CORS_HEADERS"] = "Content-type"
 db_peliculas = "db_peliculas.json"
+db_ususarios = "db_usuarios.json"
 
 ##def leer_json_usuarios():
    ## return 1
@@ -16,8 +17,8 @@ def leer_json_peliculas():
     return data_peliculas
 
 def añadir_json(data_peliculas):
-    with open(db_peliculas , "w") as pp:
-        json.dump(data_peliculas,pp,indent=1)
+    with open(db_peliculas , "w") as peliculas:
+        json.dump(data_peliculas,peliculas,indent=1)
 
 
 ##------------------ Rutas ---------------------
@@ -32,6 +33,10 @@ def agregarPelicula():
 @app.route("/login")
 def login():
     return render_template("login.html")
+
+@app.route("/registro")
+def registro():
+    return render_template("registro.html")
 
 ##-----------------------------------------------
 
@@ -53,6 +58,6 @@ def obtener_peliculas():
 def verificarUsuario():
     ##data_usuario = leer_json_usuarios()
     data = request.get_json()
-    print(data)
+    print(data["usuario"])
     return render_template("index.html")
 

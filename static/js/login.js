@@ -13,7 +13,4 @@ btn_login.onclick = function(){
             "password": contraseña
         })
     });
-    console.log(usuarioIngresado.value);
-    console.log(contraseña.value);
-    
 }
