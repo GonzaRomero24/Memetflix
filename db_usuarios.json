@@ -1,0 +1,16 @@
+[
+ {
+  "Id": 1,
+  "Nombre": "Admin",
+  "Correo": "admin@admin.cl",
+  "Usuario": "admin",
+  "Contrasena": "admin123"
+ },
+ {
+  "Id": 2,
+  "Nombre": "a",
+  "Correo": "a",
+  "Usuario": "gonzalo",
+  "Contrasena": "123"
+ }
+]
