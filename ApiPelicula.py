@@ -67,12 +67,12 @@ def obtener_usuarios():
     return jsonify(data_usuarios)
 
 
-##@app.route("/verificarUsuario", methods=["POST"])
-##def verificarUsuario():
-    ##data_usuario = leer_json_usuarios()
-  ##  data = request.get_json()
-   ## print(data["usuario"])
-    ##return render_template("index.html")
+@app.route("/verificarUsuario", methods=["GET"])
+def verificarUsuario():
+    data_usuario = leer_json_usuarios()
+    data = request.get_json()
+    print(data["usuario"])
+    return render_template("index.html")
 
 @app.route("/añadirUsuario", methods=["POST"])
 def añadir_usuario():
@@ -80,4 +80,4 @@ def añadir_usuario():
     nuevo_usuario = request.get_json()
     data_usuarios.append(nuevo_usuario)
     añadir_json_usuarios(data_usuarios)
-    return "Usuario Agregado Correctamente"
+    return render_template("index.html")

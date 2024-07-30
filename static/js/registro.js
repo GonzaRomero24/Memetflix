@@ -30,18 +30,25 @@ btn_registrar.addEventListener("click", async () =>{
 
     /*Validaciones de entrada */
     if(nombre_usuario === "" || correo_usuario === "" || usuario_Ingresado === "" || contraseña_ingresada === "" || confirmacion_contraseña === ""){
-        
-        alert("No has llenado todos los espacios")
+        btn_registrar.setAttribute("data-bs-toggle","modal");
+        btn_registrar.setAttribute("data-bs-target","#staticBackdrop");
+        const divmodal = document.getElementById("body_modal");
+        divmodal.innerText = "No has llenado todos los espacios";
 
     } else if(usuarioExistente.length > 0 || emailExistente.length >0){
-
-        alert("El usuario o correo ya existe , porfavor intenta con otro")
+        btn_registrar.setAttribute("data-bs-toggle","modal");
+        btn_registrar.setAttribute("data-bs-target","#staticBackdrop");
+        const divmodal = document.getElementById("body_modal");
+        divmodal.innerText = "El usuario o correo ya existe , porfavor intenta con otro";
 
     } else if(contraseña_ingresada !== confirmacion_contraseña ){
-        alert("las contraseñas no son iguales")
+        btn_registrar.setAttribute("data-bs-toggle","modal");
+        btn_registrar.setAttribute("data-bs-target","#staticBackdrop");
+        const divmodal = document.getElementById("body_modal");
+        divmodal.innerText = "las contraseñas no son iguales";
 
     } else{
-
+        btn_registrar.remove("data-bs-target");
         /*Fetch a la api */
         fetch("/añadirUsuario",{
             method:"POST",
