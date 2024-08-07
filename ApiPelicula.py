@@ -67,12 +67,23 @@ def obtener_usuarios():
     return jsonify(data_usuarios)
 
 
-@app.route("/verificarUsuario", methods=["GET"])
+@app.route("/verificarUsuario", methods=["POST"])
 def verificarUsuario():
+    encontrado = False
+    usuario_encontrado = None
     data_usuario = leer_json_usuarios()
     data = request.get_json()
     print(data["usuario"])
-    return render_template("index.html")
+
+    for usuario in data_usuario:
+        if data["usuario"] == usuario["Usuario"] and data["password"] == usuario["Contrasena"] : 
+            encontrado = True
+            usuario_encontrado = usuario
+            break
+    if encontrado == True:
+        return jsonify({"Encontrado": True , "UsuaroLog": usuario_encontrado["Usuario"]})
+    else :
+        return jsonify({"Encontrado": False})
 
 @app.route("/añadirUsuario", methods=["POST"])
 def añadir_usuario():
@@ -80,4 +91,4 @@ def añadir_usuario():
     nuevo_usuario = request.get_json()
     data_usuarios.append(nuevo_usuario)
     añadir_json_usuarios(data_usuarios)
-    return render_template("index.html")
+    return "cliente agregado           "

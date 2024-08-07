@@ -26,16 +26,38 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Noticias</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+          <li class="nav-item" id="Log">
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <div id="carouselExample" class="carousel slide" style="">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://t1.uc.ltmcdn.com/es/posts/5/8/1/las_mejores_peliculas_de_aventuras_54185_orig.jpg" class="d-block w-100" alt="200px">
+      </div>
+      <div class="carousel-item">
+        <img src="https://t1.uc.ltmcdn.com/es/posts/6/6/1/las_mejores_peliculas_de_fantasia_54166_orig.jpg" class="d-block w-100" alt="200px">
+      </div>
+      <div class="carousel-item">
+        <img src="https://t1.uc.ltmcdn.com/es/posts/3/8/3/las_mejores_sagas_de_peliculas_53383_600.jpg" class="d-block w-100" alt="200px">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
   <div class="containerEstrenos container">
-    <div class="d-flex flex-wrap justify-content-center">
-      <h3> Ultimos Estrenos</h3>
+    <div class="d-flex flex-column justify-content-center">
+      <h3 class="text-center" style="color: white;"> Ultimos Estrenos</h3>
       <div class="containerCard row" id="containerCard">
       </div>
     </div>

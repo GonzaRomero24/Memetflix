@@ -15,9 +15,31 @@
  },
  {
   "Id": 3,
-  "Nombre": "gonzalo",
-  "Correo": "awda",
-  "Usuario": "12331",
-  "Contrasena": "111"
+  "Nombre": "sadas",
+  "Correo": "asddas",
+  "Usuario": "admin1",
+  "Contrasena": "123"
+ },
+ {
+  "Id": 4,
+  "Nombre": "asdasd",
+  "Correo": "asdadsda",
+  "Usuario": "admin11",
+  "Contrasena": "123"
+ },
+ {
+  "Id": 5,
+  "Nombre": "ardada",
+  "Correo": "aaaa@ddd.cl",
+  "Usuario": "dasdasds",
+  "Contrasena": "123"
+ },
+ {
+  "Id": 6,
+  "Nombre": "a",
+  "Correo": "a@a.cl",
+  "Usuario": "a",
+  "Contrasena": "a",
+  "TipoUsuario": "Usuario"
  }
 ]

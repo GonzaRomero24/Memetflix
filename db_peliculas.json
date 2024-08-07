@@ -1,30 +1,32 @@
 [
  {
-  "nombre": "Pokemon",
-  "genero": "Infantil"
+  "nombre": "Rapido y furioso",
+  "genero": "Accion",
+  "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
+  "Anio": "2001"
  },
  {
-  "nombre": "c",
-  "genero": "v"
+  "nombre": "Rapido y furioso",
+  "genero": "Accion",
+  "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
+  "Anio": "2001"
  },
  {
-  "nombre": "faast",
-  "genero": "asfafs"
+  "nombre": "Rapido y furioso",
+  "genero": "Accion",
+  "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
+  "Anio": "2001"
  },
  {
-  "nombre": "digimon",
-  "genero": "anime"
+  "nombre": "Rapido y furioso",
+  "genero": "Accion",
+  "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
+  "Anio": "2001"
  },
  {
-  "nombre": "busqueda ",
-  "genero": "accion"
- },
- {
-  "nombre": "power ranger",
-  "genero": "infantil"
- },
- {
-  "nombre": "deadpool",
-  "genero": "infantil"
+  "nombre": "Dgimom",
+  "genero": "Anime",
+  "linkCaratula": "https://i.scdn.co/image/ab67616d0000b273de6f899c9269b78043fd1490",
+  "Anio": "2005"
  }
 ]
