@@ -44,6 +44,10 @@ def login():
 def registro():
     return render_template("registro.html")
 
+@app.route("/series")
+def series():
+    return render_template("Series.html")
+
 ##-----------------------------------------------
 
 ## ----- API para las Peliculas -----------------
