@@ -3,30 +3,63 @@
   "nombre": "Rapido y furioso",
   "genero": "Accion",
   "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
+  "tipo": "Pelicula",
   "Anio": "2001"
  },
  {
   "nombre": "Rapido y furioso",
   "genero": "Accion",
   "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
+  "tipo": "Pelicula",
   "Anio": "2001"
  },
  {
   "nombre": "Rapido y furioso",
   "genero": "Accion",
   "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
+  "tipo": "Pelicula",
   "Anio": "2001"
  },
  {
   "nombre": "Rapido y furioso",
   "genero": "Accion",
   "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
+  "tipo": "Pelicula",
   "Anio": "2001"
  },
  {
   "nombre": "Dgimom",
   "genero": "Anime",
   "linkCaratula": "https://i.scdn.co/image/ab67616d0000b273de6f899c9269b78043fd1490",
+  "tipo": "serie",
   "Anio": "2005"
+ },
+ {
+  "nombre": "Rapido y furioso",
+  "genero": "Accion",
+  "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
+  "tipo": "Pelicula",
+  "Anio": "2001"
+ },
+ {
+  "nombre": "Rapido y furioso",
+  "genero": "Accion",
+  "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
+  "tipo": "Pelicula",
+  "Anio": "2001"
+ },
+ {
+  "nombre": "Rapido y furioso",
+  "genero": "Accion",
+  "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
+  "tipo": "Pelicula",
+  "Anio": "2001"
+ },
+ {
+  "nombre": "lorax y la trufula",
+  "genero": "infantil",
+  "linkCaratula": "https://m.media-amazon.com/images/M/MV5BMTU1MTAwMjk1NF5BMl5BanBnXkFtZTcwMDI5NDc4Ng@@._V1_.jpg",
+  "tipo": "Pelicula",
+  "Anio": "2010"
  }
 ]

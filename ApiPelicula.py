@@ -44,9 +44,9 @@ def login():
 def registro():
     return render_template("registro.html")
 
-@app.route("/series")
-def series():
-    return render_template("Series.html")
+@app.route("/pelicula")
+def pelicula():
+    return render_template("pelicula.html")
 
 ##-----------------------------------------------
 
@@ -62,6 +62,15 @@ def nueva_Pelicula():
 def obtener_peliculas():
     data_peliculas = leer_json_peliculas()
     return jsonify(data_peliculas)
+
+@app.route("/get_Filtros", methods=["GET"])
+def obtener_Filtros():
+    peliculasFiltro = []
+    datos_db = leer_json_peliculas()
+    for peliculas in datos_db:
+        if peliculas["tipo"] =="serie":
+            peliculasFiltro.append(peliculas)
+    return jsonify(peliculasFiltro)
 ##-----------------------------------------------
 ## ----- API para los usuarios -----------------
 @app.route("/obtenerUsuarios", methods=["GET"])
@@ -95,4 +104,4 @@ def añadir_usuario():
     nuevo_usuario = request.get_json()
     data_usuarios.append(nuevo_usuario)
     añadir_json_usuarios(data_usuarios)
-    return "cliente agregado           "
+    return "cliente agregado"
