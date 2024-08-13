@@ -1,11 +1,27 @@
+
 async function cargarPeliculas(){
     try{
-        const respuesta = await fetch("/get_Filtros");
+        const respuesta = await fetch("/get_Peliculas_all");
         const datosPeliculas = respuesta.json();
         return datosPeliculas
     }catch(error){
         console.log(error)
     }
+}
+
+async function ObtenerFiltrado(generosSeleccionados) {
+    try{
+        const respuesta  = await fetch("/get_Filtrado",{
+            method : "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ generos: generosSeleccionados })
+        });
+    }catch(error){
+        console.error('Error al filtrar películas:', error);
+    }
+    
 }
 
 function mostrar_filtros(datosmovie){
@@ -24,7 +40,15 @@ function mostrar_filtros(datosmovie){
     });
 }
 
+function aplicarFiltros(){
+        const generosSeleccionados = Array.from(document.querySelectorAll(".form-check-input:checked"))
+                                            .map(checkbox => checkbox.value);
+        ObtenerFiltrado(generosSeleccionados);
+}
+
 document.addEventListener('DOMContentLoaded', async (event) => {
     const datos_movie = await cargarPeliculas();
     mostrar_filtros(datos_movie)
+    const btn_filtro = document.getElementById("btn_filtro");
+    btn_filtro.addEventListener("click",aplicarFiltros);
 });

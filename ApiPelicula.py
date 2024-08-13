@@ -63,14 +63,28 @@ def obtener_peliculas():
     data_peliculas = leer_json_peliculas()
     return jsonify(data_peliculas)
 
-@app.route("/get_Filtros", methods=["GET"])
+@app.route("/get_Peliculas_all", methods=["GET"])
 def obtener_Filtros():
     peliculasFiltro = []
     datos_db = leer_json_peliculas()
     for peliculas in datos_db:
-        if peliculas["tipo"] =="serie":
+        if peliculas["tipo"] =="Pelicula":
             peliculasFiltro.append(peliculas)
     return jsonify(peliculasFiltro)
+
+@app.route("/get_Filtrado", methods=["POST"])
+def obtener_Filtrado():
+    peliculasFiltrado = []
+    datos_peliculas = leer_json_peliculas()
+    filtros = request.get_json();
+    print(filtros["generos"])
+    for peliculas in datos_peliculas:
+        if peliculas["tipo"] == "Pelicula":
+            for filtro in filtros["generos"]:
+                if peliculas["genero"] == filtro:
+                    peliculasFiltrado.append(peliculas)
+    return jsonify(peliculasFiltrado)
+        
 ##-----------------------------------------------
 ## ----- API para los usuarios -----------------
 @app.route("/obtenerUsuarios", methods=["GET"])
