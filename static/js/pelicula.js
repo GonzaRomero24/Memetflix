@@ -18,6 +18,11 @@ async function ObtenerFiltrado(generosSeleccionados) {
             },
             body: JSON.stringify({ generos: generosSeleccionados })
         });
+        if(respuesta.ok){
+            const datosFiltrado = await respuesta.json();
+            console.log(datosFiltrado)
+            mostrar_filtros(datosFiltrado);
+        }
     }catch(error){
         console.error('Error al filtrar películas:', error);
     }
@@ -26,6 +31,7 @@ async function ObtenerFiltrado(generosSeleccionados) {
 
 function mostrar_filtros(datosmovie){
     var div_container = document.getElementById("container-Peliculas");
+    div_container.innerHTML = ""
     datosmovie.forEach(e=> {
         const div = document.createElement("div")
         div.className = "col-6 col-md-4 col-xl-3";
@@ -39,11 +45,17 @@ function mostrar_filtros(datosmovie){
         div_container.appendChild(div);
     });
 }
-
-function aplicarFiltros(){
+async function aplicarFiltros(){
         const generosSeleccionados = Array.from(document.querySelectorAll(".form-check-input:checked"))
                                             .map(checkbox => checkbox.value);
-        ObtenerFiltrado(generosSeleccionados);
+        console.log(generosSeleccionados);
+        if(generosSeleccionados.length > 0){
+            ObtenerFiltrado(generosSeleccionados);
+        }else{
+            const datos_movie = await cargarPeliculas();
+            mostrar_filtros(datos_movie)
+        }
+        
 }
 
 document.addEventListener('DOMContentLoaded', async (event) => {
