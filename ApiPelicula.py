@@ -48,6 +48,10 @@ def registro():
 def pelicula():
     return render_template("pelicula.html")
 
+@app.route("/series")
+def serie():
+    return render_template("series.html")
+
 ##-----------------------------------------------
 
 ## ----- API para las Peliculas -----------------
@@ -64,7 +68,7 @@ def obtener_peliculas():
     return jsonify(data_peliculas)
 
 @app.route("/get_Peliculas_all", methods=["GET"])
-def obtener_Filtros():
+def obtener_All_Peliculas():
     peliculasFiltro = []
     datos_db = leer_json_peliculas()
     for peliculas in datos_db:
@@ -85,6 +89,16 @@ def obtener_Filtrado():
                     peliculasFiltrado.append(peliculas)
     return jsonify(peliculasFiltrado)
         
+##-----------------------------------------------
+## ----- API para las series -----------------
+@app.route("/get_Series_all", methods=["GET"])
+def Obtener_All_Series():
+    Lista_Series = []
+    datos_db = leer_json_peliculas()
+    for series in datos_db:
+        if series["tipo"] == "Serie":
+            Lista_Series.append(series)
+    return jsonify(Lista_Series)
 ##-----------------------------------------------
 ## ----- API para los usuarios -----------------
 @app.route("/obtenerUsuarios", methods=["GET"])
