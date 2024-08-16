@@ -62,12 +62,12 @@ def nueva_Pelicula():
     data_peliculas.append(nueva_pelicula)
     añadir_json_peliculas(data_peliculas)
 
-@app.route("/get", methods=["GET"])
+@app.route("/pelicula/get", methods=["GET"])
 def obtener_peliculas():
     data_peliculas = leer_json_peliculas()
     return jsonify(data_peliculas)
 
-@app.route("/get_Peliculas_all", methods=["GET"])
+@app.route("/pelicula/get_Peliculas", methods=["GET"])
 def obtener_All_Peliculas():
     peliculasFiltro = []
     datos_db = leer_json_peliculas()
@@ -76,7 +76,7 @@ def obtener_All_Peliculas():
             peliculasFiltro.append(peliculas)
     return jsonify(peliculasFiltro)
 
-@app.route("/get_Filtrado", methods=["POST"])
+@app.route("/pelicula/get_Filtrado_Pelicula", methods=["POST"])
 def obtener_Filtrado():
     peliculasFiltrado = []
     datos_peliculas = leer_json_peliculas()

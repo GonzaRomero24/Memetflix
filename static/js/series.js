@@ -9,10 +9,10 @@ async function cargarSeries() {
     }
 }
 
-function cargarCaratulas(data_series){
-    var div_container = document.getElementById("container-Serie");
-    console.log(data_series)
-    data_series.forEach(serie => {
+function cargarCaratulas(dataseries){
+    var divcontainer = document.getElementById("container-Series");
+    console.log(divcontainer)
+    dataseries.forEach(serie => {
         const div = document.createElement("div");
         div.className = "col-6 col-md-4 col-xl-3";
         
@@ -23,8 +23,14 @@ function cargarCaratulas(data_series){
         caratula_serie.src = serie.linkCaratula;
         caratula_serie.style.width = "120px";
         divcard.appendChild(caratula_serie);
+
+        const card_body_series = document.createElement("div");
+        const titulo_serie = document.createElement("h5");
+        titulo_serie.innerText = serie.nombre;
+        card_body_series.appendChild(titulo_serie);
+        divcard.appendChild(card_body_series);
         div.appendChild(divcard);
-        div_container.appendChild(div);
+        divcontainer.appendChild(div);
     });
 }
 
