@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 cors = CORS(app)
 app.config["CORS_HEADERS"] = "Content-type"
-db_peliculas = "db_peliculas.json"
+db_peliculas = "db_datos_series_y_peliculas.json"
 db_ususarios = "db_usuarios.json"
 
 def leer_json_usuarios():
@@ -17,12 +17,13 @@ def añadir_json_usuarios(data_usuarios):
     with open(db_ususarios, "w") as usuarios:
         json.dump(data_usuarios,usuarios, indent=1)
 
-def leer_json_peliculas():
+def leer_db():
     with open(db_peliculas, "r") as peliculas:
         data_peliculas = json.load(peliculas)
-    return data_peliculas
+    orden_data = sorted(data_peliculas, key=lambda x: x["nombre"])
+    return orden_data
 
-def añadir_json_peliculas(data_peliculas):
+def añadir_db(data_peliculas):
     with open(db_peliculas , "w") as peliculas:
         json.dump(data_peliculas,peliculas,indent=1)
 
@@ -52,25 +53,34 @@ def pelicula():
 def serie():
     return render_template("series.html")
 
+@app.route("/series/<serie_seleccionada>")
+def info_serie(serie_seleccionada):
+    print (serie_seleccionada)
+    return render_template("info_serie.html")
+
 ##-----------------------------------------------
 
 ## ----- API para las Peliculas -----------------
 @app.route("/peliculas", methods=["POST"] )
 def nueva_Pelicula():
-    data_peliculas = leer_json_peliculas()
+    data_peliculas = leer_db()
     nueva_pelicula = request.get_json()
     data_peliculas.append(nueva_pelicula)
-    añadir_json_peliculas(data_peliculas)
+    añadir_db(data_peliculas)
 
-@app.route("/pelicula/get", methods=["GET"])
+@app.route("/pelicula/getAll", methods=["GET"])
 def obtener_peliculas():
-    data_peliculas = leer_json_peliculas()
-    return jsonify(data_peliculas)
+    ultimos_estrenos = []
+    data_peliculas = leer_db()
+    for peliculas in data_peliculas:
+        if peliculas["Anio"] >= "2022":
+            ultimos_estrenos.append(peliculas)
+    return jsonify(ultimos_estrenos)
 
 @app.route("/pelicula/get_Peliculas", methods=["GET"])
 def obtener_All_Peliculas():
     peliculasFiltro = []
-    datos_db = leer_json_peliculas()
+    datos_db = leer_db()
     for peliculas in datos_db:
         if peliculas["tipo"] =="Pelicula":
             peliculasFiltro.append(peliculas)
@@ -79,7 +89,7 @@ def obtener_All_Peliculas():
 @app.route("/pelicula/get_Filtrado_Pelicula", methods=["POST"])
 def obtener_Filtrado():
     peliculasFiltrado = []
-    datos_peliculas = leer_json_peliculas()
+    datos_peliculas = leer_db()
     filtros = request.get_json();
     print(filtros["generos"])
     for peliculas in datos_peliculas:
@@ -91,10 +101,10 @@ def obtener_Filtrado():
         
 ##-----------------------------------------------
 ## ----- API para las series -----------------
-@app.route("/get_Series_all", methods=["GET"])
+@app.route("/serie/get_Series_all", methods=["GET"])
 def Obtener_All_Series():
     Lista_Series = []
-    datos_db = leer_json_peliculas()
+    datos_db = leer_db()
     for series in datos_db:
         if series["tipo"] == "Serie":
             Lista_Series.append(series)

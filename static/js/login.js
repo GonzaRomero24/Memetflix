@@ -17,11 +17,8 @@ btn_login.addEventListener("click", async() =>{
     console.log(response)
     if(response.ok){
         const datos =  await response.json();
-        console.log(datos)
         if (datos.Encontrado){
-            console.log("enctra if")
             localStorage.setItem("usuarioLog", datos.UsuaroLog);
-            console.log("usuario: "+datos.UsuaroLog);
             location.href  ="/"
         }else{
             console.log("error")

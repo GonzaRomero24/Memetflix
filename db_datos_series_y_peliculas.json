@@ -70,9 +70,16 @@
   "Anio": "2023"
  },
  {
-  "nombre": "DRAGON BALL",
+  "nombre": "Dragon Ball Z",
   "genero": "Anime",
-  "linkCaratula": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDKmPkKz7qe4UF0X5eHIFM1Qwe-AY2bRaq6g&s",
+  "linkCaratula": "https://cdn.myanimelist.net/images/anime/1277/142022.jpg",
+  "tipo": "Serie",
+  "Anio": "1998"
+ },
+ {
+  "nombre": "Dragon Ball Gt",
+  "genero": "Anime",
+  "linkCaratula": "https://cdn.myanimelist.net/images/anime/1277/142022.jpg",
   "tipo": "Serie",
   "Anio": "1998"
  }

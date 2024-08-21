@@ -46,25 +46,44 @@ async function ObtenerFiltrado(generosSeleccionados) {
     
 }
 
+// Funcion para poder visualizar las peliculas
 function mostrar_filtros(datosmovie){
+    //Obtenemos el div en donde mostraremos las peliculas
     var div_container = document.getElementById("container-Peliculas");
+    //Limpiamos el contenido del div
     div_container.innerHTML = ""
+    // Recorremos el array datosmovie  
     datosmovie.forEach(pelicula=> {
+        // Creamos un elemento div para cada pelicula en el array
         const div = document.createElement("div")
+        // Establecemos una clase para aplicar estilos de Boostrap
         div.className = "col-6 col-md-4 col-xl-3";
 
+        // Creamos un elemento div para la Card de cada una de las peliculas
         const divcard = document.createElement('div');
+        // Establecemos una clase para aplicar los estilos de Boostrap
         divcard.className = "card align-items-center justify-content-center";
         
+        // Creamos el elemento para la Caratula de la pelicula
         const caratula = document.createElement("img");
+        // Asignamos el Link de la pelicula
         caratula.src = pelicula.linkCaratula;
+        // Asignamos la medida que tendra la caratula de la pelicula
         caratula.style.width = "120px";
+        //Añadimos la imagen a la card
         divcard.appendChild(caratula)
         
         const card_body_peliculas = document.createElement("div");
         const titulo_peliculas = document.createElement("h5");
         titulo_peliculas.innerText = pelicula.nombre;
         card_body_peliculas.appendChild(titulo_peliculas);
+
+        const btn_ver = document.createElement("button");
+        btn_ver.className = "btn btn-primary";
+        btn_ver.innerText = "ver";
+        btn_ver.value = pelicula.nombre;
+        card_body_peliculas.appendChild(btn_ver);
+
         divcard.appendChild(card_body_peliculas)
         div.appendChild(divcard);
         div_container.appendChild(div);
@@ -83,9 +102,20 @@ async function aplicarFiltros(){
         
 }
 
+function renderizarPelicula(nombre_pelicula){
+    const serieSeleccionada = nombre_pelicula.target.value;
+    console.log(serieSeleccionada);
+}
+
 document.addEventListener('DOMContentLoaded', async (event) => {
     const datos_movie = await cargarPeliculas();
     mostrar_filtros(datos_movie)
     const btn_filtro = document.getElementById("btn_filtro");
     btn_filtro.addEventListener("click",aplicarFiltros);
+    const btnver = document.getElementsByClassName("btn");
+    for (let i = 0; i < btnver.length; i++) {
+        btnver[i].addEventListener("click", function(e){
+            renderizarPelicula(e);
+        });
+    }
 });

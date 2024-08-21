@@ -1,7 +1,7 @@
 let db_peliculas = [];
 
 function carga_datos() {
-    fetch("/get")
+    fetch("/pelicula/getAll")
         .then(response => response.json())
         .then(data => {
             db_peliculas = data;
@@ -20,6 +20,7 @@ function mostrar_datos() {
         div2.className = "col-12 col-lg-3 mb-4";
         let divcard = document.createElement('div');
         divcard.className = "card align-items-center justify-content-center";
+        divcard.style.height = "484.5px"
         let caratula = document.createElement("img");
         /*caratula.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvTs8O9rWjP0cWAxVHelhq4kBUUxkOTtzreA&s";*/
         caratula.src = e.linkCaratula;
