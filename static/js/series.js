@@ -40,6 +40,21 @@ function cargarCaratulas(dataseries){
     });
 }
 
+async function ObtenerDatosWiki(nombreSerie) {
+    const url = `https://es.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(nombreSerie)}`;
+    try{
+        const respuesta = await fetch(url);
+        if (respuesta.ok){
+            const data = await respuesta.json();
+            console.log(data);
+        }else{
+            console.log("error",respuesta.status);
+        }
+    }catch(error){
+        console.log(error);
+    }
+}
+
 function renderizarSerie(nombre_serie){
     const nombreserie = nombre_serie.target.value;
     const serieSeleccionada = nombreserie.replace(/ /g,"_")

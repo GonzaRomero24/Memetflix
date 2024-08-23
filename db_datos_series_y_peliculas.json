@@ -1,86 +1,50 @@
 [
  {
   "nombre": "Rapido y furioso",
-  "genero": "Accion",
-  "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
-  "tipo": "Pelicula",
-  "Anio": "2001"
- },
- {
-  "nombre": "Rapido y furioso",
   "genero": "Accion , Aventura",
   "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
   "tipo": "Pelicula",
-  "Anio": "2001"
+  "Anio": "2001",
+  "LinkTrailer":"https://www.youtube.com/watch?v=-oJHZre7XZY"
  },
  {
-  "nombre": "Rapido y furioso",
-  "genero": "Accion,Comedia",
-  "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
-  "tipo": "Pelicula",
-  "Anio": "2001"
- },
- {
-  "nombre": "Rapido y furioso",
-  "genero": "Accion",
-  "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
-  "tipo": "Pelicula",
-  "Anio": "2001"
- },
- {
-  "nombre": "Dgimom",
+  "nombre": "Digimom",
   "genero": "Anime",
   "linkCaratula": "https://i.scdn.co/image/ab67616d0000b273de6f899c9269b78043fd1490",
   "tipo": "serie",
-  "Anio": "2005"
- },
- {
-  "nombre": "Rapido y furioso",
-  "genero": "Accion",
-  "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
-  "tipo": "Pelicula",
-  "Anio": "2001"
- },
- {
-  "nombre": "Rapido y furioso",
-  "genero": "Accion",
-  "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
-  "tipo": "Pelicula",
-  "Anio": "2001"
- },
- {
-  "nombre": "Rapido y furioso",
-  "genero": "Accion",
-  "linkCaratula": "https://image.tmdb.org/t/p/original/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg",
-  "tipo": "Pelicula",
-  "Anio": "2001"
+  "Anio": "2005",
+  "LinkTrailer":"https://www.youtube.com/watch?v=EOuHn6eiyjI"
  },
  {
   "nombre": "lorax y la trufula",
   "genero": "Infantil",
   "linkCaratula": "https://m.media-amazon.com/images/M/MV5BMTU1MTAwMjk1NF5BMl5BanBnXkFtZTcwMDI5NDc4Ng@@._V1_.jpg",
   "tipo": "Pelicula",
-  "Anio": "2010"
+  "Anio": "2010",
+  "LinkTrailer":"https://www.youtube.com/watch?v=DdLV3whI8Uc"
  },
  {
-  "nombre": "pokemon",
+  "nombre": "Pokemon",
   "genero": "aaaaa",
-  "linkCaratula": "https://es.web.img2.acsta.net/pictures/14/07/18/10/57/567741.jpg",
+  "linkCaratula": "https://cdn.myanimelist.net/images/anime/1787/140239.jpg",
   "tipo": "Serie",
-  "Anio": "2023"
+  "Anio": "2023",
+  "LinkTrailer":"https://www.youtube.com/embed/uDIoEbbFKAY?si=vcZMo0kjIfuMSEES"
  },
  {
   "nombre": "Dragon Ball Z",
   "genero": "Anime",
   "linkCaratula": "https://cdn.myanimelist.net/images/anime/1277/142022.jpg",
   "tipo": "Serie",
-  "Anio": "1998"
+  "Anio": "1998",
+  "LinkTrailer":"https://www.youtube.com/embed/cie7scVUdQE?si=Oc0EE8rPrY03tGE4"
  },
  {
-  "nombre": "Dragon Ball Gt",
+  "nombre": "Dragon Ball GT",
   "genero": "Anime",
-  "linkCaratula": "https://cdn.myanimelist.net/images/anime/1277/142022.jpg",
+  "linkCaratula": "https://cdn.myanimelist.net/images/anime/1262/93119.jpg",
   "tipo": "Serie",
-  "Anio": "1998"
+  "Anio": "1998",
+  "LinkTrailer":"https://www.youtube.com/embed/wgZ-ATUGXDw?si=XWJj4YH7I0O063Wa"
  }
 ]

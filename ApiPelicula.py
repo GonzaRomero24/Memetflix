@@ -56,7 +56,7 @@ def serie():
 @app.route("/series/<serie_seleccionada>")
 def info_serie(serie_seleccionada):
     print (serie_seleccionada)
-    return render_template("info_serie.html")
+    return render_template("info_serie.html",serie_seleccionada = serie_seleccionada)
 
 ##-----------------------------------------------
 
@@ -109,6 +109,33 @@ def Obtener_All_Series():
         if series["tipo"] == "Serie":
             Lista_Series.append(series)
     return jsonify(Lista_Series)
+
+@app.route("/series/getVideo/<serie_seleccionada>",methods=["GET"])
+def obtener_video(serie_seleccionada):
+    url = ""
+    serie_seleccionada = cambioCaracter(serie_seleccionada)
+    print(serie_seleccionada)
+    datos_db = leer_db()
+    for series in datos_db:
+        if series["nombre"] == serie_seleccionada:
+            url = series["LinkTrailer"]
+    return jsonify(url)
+
+@app.route("/series/getCaratula/<serie_seleccionada>",methods=["GET"])
+def obtener_caratula(serie_seleccionada):
+    url = ""
+    serie_seleccionada = cambioCaracter(serie_seleccionada)
+    print(serie_seleccionada)
+    datos_db = leer_db()
+    for series in datos_db:
+        if series["nombre"] == serie_seleccionada:
+            url = series["linkCaratula"]
+    return jsonify(url)
+
+
+def cambioCaracter(cadena):
+    return cadena.replace("_"," ")
+    
 ##-----------------------------------------------
 ## ----- API para los usuarios -----------------
 @app.route("/obtenerUsuarios", methods=["GET"])

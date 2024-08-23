@@ -16,6 +16,7 @@ body{
     height: 50px;
 }
 
-h1{
-    background-color: white;
+h1,h3,p{
+    color: white;
 }
+
