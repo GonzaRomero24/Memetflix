@@ -101,7 +101,7 @@ def obtener_Filtrado():
         
 ##-----------------------------------------------
 ## ----- API para las series -----------------
-@app.route("/serie/get_Series_all", methods=["GET"])
+@app.route("/series/get_Series_all", methods=["GET"])
 def Obtener_All_Series():
     Lista_Series = []
     datos_db = leer_db()
@@ -120,6 +120,20 @@ def obtener_video(serie_seleccionada):
         if series["nombre"] == serie_seleccionada:
             url = series["LinkTrailer"]
     return jsonify(url)
+
+@app.route("/series/get_filtrado_serie", methods=["POST"])
+def obtener_Filtrado1():
+    peliculasFiltrado = []
+    datos_peliculas = leer_db()
+    filtros = request.get_json();
+    print(filtros["generos"])
+    for peliculas in datos_peliculas:
+        if peliculas["tipo"] == "serie":
+            for filtro in filtros["generos"]:
+                if peliculas["genero"] == filtro:
+                    peliculasFiltrado.append(peliculas)
+    return jsonify(peliculasFiltrado)
+        
 
 @app.route("/series/getCaratula/<serie_seleccionada>",methods=["GET"])
 def obtener_caratula(serie_seleccionada):

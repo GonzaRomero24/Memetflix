@@ -17,20 +17,63 @@ body{
 }
 
 #carouselExample {
-    width: 1500px;
-    height: 400px;
     margin: auto;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 #carouselExample .carousel-inner img {
     width: auto;
     height: 400px;
 }
-
-.card{
-    transition: all 0.3s;
+.container{
+    margin-bottom: 100px;
 }
 
+.navbar{
+    background: black;                                    
+}
+
+.navbar a{
+    opacity: 100%;
+}
+
+.card{
+    height: 484.5px;
+    background-color: #141519;
+    box-shadow: 0 0 0 .5rem #141519;
+    margin-top: 30px;
+    margin-left: 30px;
+    transition: all 0.3s;
+}
+.card img{
+    width: 250px;
+    border-radius: 30px;
+    padding: 10px;
+    
+}
+
+.card h5,p{
+    font-size: 25px;
+    color: white;
+}
+
+.card button{
+    width: 50%;
+    font-size: 30px;
+    color: black;
+    background-color: #008CBA;
+    border: transparent;
+    border-radius: 10px;
+}
+
+
 .card:hover{
-    transform: scale(1.15);
+    transform: scale(1.05);
+}
+
+h2{
+    font-size: 50px;
+    color: white;
+    padding-top: 20px;
 }

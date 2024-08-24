@@ -102,20 +102,9 @@ async function aplicarFiltros(){
         
 }
 
-function renderizarPelicula(nombre_pelicula){
-    const serieSeleccionada = nombre_pelicula.target.value;
-    console.log(serieSeleccionada);
-}
-
 document.addEventListener('DOMContentLoaded', async (event) => {
     const datos_movie = await cargarPeliculas();
     mostrar_filtros(datos_movie)
     const btn_filtro = document.getElementById("btn_filtro");
     btn_filtro.addEventListener("click",aplicarFiltros);
-    const btnver = document.getElementsByClassName("btn");
-    for (let i = 0; i < btnver.length; i++) {
-        btnver[i].addEventListener("click", function(e){
-            renderizarPelicula(e);
-        });
-    }
 });

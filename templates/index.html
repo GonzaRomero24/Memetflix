@@ -9,7 +9,7 @@
     <title>Memetflix</title>
 </head>
 <body  onload="carga_datos()">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">
       <a class="navbar-brand" href="/añadir"><img id="logo1"  src="{{ url_for('static', filename='img/logo1.png')}}">  Memetflix</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +62,7 @@
 
   <div class="containerEstrenos container">
     <div class="d-flex flex-column justify-content-center">
-      <h3 class="text-center" style="color: white;"> Ultimos Estrenos</h3>
+      <h2 class="text-center"> Ultimos Estrenos</h2>
       <div class="containerCard row" id="containerCard">
       </div>
     </div>

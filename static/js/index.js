@@ -20,27 +20,19 @@ function mostrar_datos() {
         div2.className = "col-12 col-lg-3 mb-4";
         let divcard = document.createElement('div');
         divcard.className = "card align-items-center justify-content-center";
-        divcard.style.height = "484.5px"
         let caratula = document.createElement("img");
         /*caratula.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvTs8O9rWjP0cWAxVHelhq4kBUUxkOTtzreA&s";*/
         caratula.src = e.linkCaratula;
-        caratula.style.width = "250px";
         divcard.appendChild(caratula);
         let cardbody = document.createElement("div");
         let cardTitulo = document.createElement("h5");
-        cardTitulo.innerText = "Nombre: "+ e.nombre;
+        cardTitulo.innerText = e.nombre;
         cardbody.appendChild(cardTitulo);
         let genero = document.createElement("p");
-        genero.innerText ="Genero: "+ e.genero;
+        genero.innerText = e.genero;
         cardbody.appendChild(genero);
-        let masdetalles = document.createElement("a");
+        let masdetalles = document.createElement("button");
         masdetalles.innerText = "ver";
-        masdetalles.type = "button";
-        masdetalles.className = "btn-primary";
-        masdetalles.style.fontSize = "25px"
-        masdetalles.style.color = "black"
-        masdetalles.style.backgroundColor = "#008CBA";
-        masdetalles.style.borderRadius = "4px";
         cardbody.appendChild(masdetalles);
         divcard.appendChild(cardbody);
         div2.appendChild(divcard)
