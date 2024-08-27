@@ -52,14 +52,18 @@ body{
 /*------  Navbar  -----------*/
 
 .navbar{
-    font-size: 25px;
+    
     background-color: var(--primary-color);                             
 }
 
 .navbar a{
+    font-size: 20px;
     color: white;
 }
 
+#titulo{
+    font-size: 30px;
+}
 /*------  Card  -----------*/
 
 .card{

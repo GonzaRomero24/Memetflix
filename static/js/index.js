@@ -90,7 +90,7 @@ window.addEventListener("load",function(){
         linkLogin.className ="btn btn-light px-3 me-2";
         linkLogin.id = "btn-login"
         var iconoLogin = "<i class='bx bx-user-circle' ></i>";
-        linkLogin.innerHTML = iconoLogin + "  Login"
+        linkLogin.innerHTML = iconoLogin + "  Iniciar Sesion"
 
         
         divLog.appendChild(linkLogin);

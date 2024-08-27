@@ -1,12 +1,17 @@
 from flask import Flask, request, jsonify , render_template
 from flask_cors import CORS,cross_origin
+from flask_jwt_extended import JWTManager
 import json
+
+
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config["CORS_HEADERS"] = "Content-type"
 db_peliculas = "db_datos_series_y_peliculas.json"
 db_ususarios = "db_usuarios.json"
+
+jwt = JWTManager(app)
 
 def leer_json_usuarios():
    with open(db_ususarios, "r") as usuarios:

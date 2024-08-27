@@ -102,6 +102,63 @@ async function aplicarFiltros(){
         
 }
 
+window.addEventListener("load",function(){
+    const usuariolog = localStorage.getItem("usuarioLog");
+    const divLog = document.querySelector("#Log");
+    if (usuariolog){
+        divLog.innerHTML = ""
+        let  itemNav = document.createElement("li");
+        itemNav.className = "nav-item dropdown";
+
+        let linkNav = document.createElement("button");
+        linkNav.className = "btn btn-light dropdown-toggle";
+        linkNav.setAttribute("data-bs-toggle","dropdown");
+        linkNav.setAttribute("aria-expanded","false");
+        linkNav.innerText = usuariolog;
+
+        let menudrop = document.createElement("ul");
+        menudrop.className = "dropdown-menu";
+
+        let logoutdrop = document.createElement("li");
+        let logoutnav = document.createElement("a");
+        logoutnav.className = "dropdown-item";
+        logoutnav.href = "/";
+        logoutnav.id = "logOut";
+        logoutnav.innerText = "Cerrar Sesion";
+
+        logoutdrop.appendChild(logoutnav);
+        menudrop.appendChild(logoutdrop);
+        itemNav.appendChild(linkNav);
+        itemNav.appendChild(menudrop);
+        divLog.appendChild(itemNav);
+
+
+        const btn_logout = document.getElementById("logOut");
+
+        btn_logout.addEventListener("click", function(){
+            localStorage.removeItem("usuarioLog");
+            Location.reload();
+        });
+    } else{
+        /*  <a class="nav-link" href="/login">Login</a> */
+        divLog.innerHTML = "";
+        let linkLogin = document.createElement("button");
+        linkLogin.className ="btn btn-light px-3 me-2";
+        linkLogin.id = "btn-login"
+        var iconoLogin = "<i class='bx bx-user-circle' ></i>";
+        linkLogin.innerHTML = iconoLogin + "  Iniciar Sesion"
+
+        
+        divLog.appendChild(linkLogin);
+
+        const btn_login = document.getElementById("btn-login");
+        btn_login.addEventListener("click",function(){
+            window.location.href = "/login"
+        });
+
+    }
+})
+
 document.addEventListener('DOMContentLoaded', async (event) => {
     const datos_movie = await cargarPeliculas();
     mostrar_filtros(datos_movie)
