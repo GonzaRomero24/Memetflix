@@ -1,8 +1,10 @@
 async function cargarSeries() {
     try{
         const respuesta = await fetch("/series/get_Series_all");
-        const datos_Series = respuesta.json();
-        return datos_Series
+        if(respuesta.ok){
+            const datos_Series = await respuesta.json();
+            cargarCaratulas(datos_Series)
+        }
     }catch(error){
         console.log(error)
     }
@@ -37,28 +39,30 @@ async function ObtenerFiltrado(generosSeleccionados) {
 
 function cargarCaratulas(dataseries){
     var divcontainer = document.getElementById("container-Series");
-    divcontainer.innerHTML = ""
-    let i = 1;
+    divcontainer.innerHTML = "";
+    let i = 1
     dataseries.forEach(serie => {
         const div = document.createElement("div");
-        div.className = "col-6 col-md-4 col-xl-3";
+        div.className = "col-12 col-lg-3 mb-5 ms-3";
         
         const divcard = document.createElement("div");
-        divcard.className = "card align-items-center justify-content-center";
+        divcard.className = "container-fluid card align-items-center justify-content-center";
         
         const caratula_serie = document.createElement("img");
+        caratula_serie.className = "mt-2"
         caratula_serie.src = serie.linkCaratula;
-        caratula_serie.style.width = "120px";
+        
         divcard.appendChild(caratula_serie);
 
         const card_body_series = document.createElement("div");
+        card_body_series.className = "bodycard mx-auto text-center"
         const titulo_serie = document.createElement("h5");
         titulo_serie.innerText = serie.nombre;
         card_body_series.appendChild(titulo_serie);
 
         const btn_ver = document.createElement("button");
-        btn_ver.className = "btn btn-primary";
-        btn_ver.id = "btn-ver"+i
+        btn_ver.className = "btn px-5 mb-1 btn-light";
+        btn_ver.id = "btn-ver"
         btn_ver.innerText = "ver";
         btn_ver.value = serie.nombre;
         card_body_series.appendChild(btn_ver);
@@ -66,7 +70,7 @@ function cargarCaratulas(dataseries){
         divcard.appendChild(card_body_series);
         div.appendChild(divcard);
         divcontainer.appendChild(div);
-        i = i+1;
+        btnVer();
     });
 }
 
@@ -86,26 +90,38 @@ async function ObtenerDatosWiki(nombreSerie) {
 }
 
 async function aplicarFiltros(){
-    const generosSeleccionados = Array.from(document.querySelectorAll(".form-check-input:checked"))
-                                        .map(checkbox => checkbox.value);
-    console.log(generosSeleccionados);
-    if(generosSeleccionados.length > 0){
-        ObtenerFiltrado(generosSeleccionados);
-    }else{
-        const datos_serie = await cargarSeries();
-        cargarCaratulas(datos_serie)
-    }
+    console.log("entra")
+    const check = document.querySelectorAll(".form-check-input:checked");
+    console.log(check);
+    //const generosSeleccionados = Array.from(document.querySelectorAll(".form-check-input:checked"))
+      //                                  .map(checkbox => checkbox.value);
+    //console.log(generosSeleccionados.length);
+    //if(generosSeleccionados.length > 0){
+      //  ObtenerFiltrado(generosSeleccionados);
+    //}else{
+      //  window.location.href = "/series"
+   // }
     
 }
 
+function btnVer(){
+    const btn_ver = document.querySelectorAll("#btn-ver")
+    for (const btn of btn_ver){
+        btn.addEventListener("click",()=>{
+            console.log(btn.value)
+            renderizarSerie(btn.value)
+        });
+    }
+}
+
 function renderizarSerie(nombre_serie){
-    const nombreserie = nombre_serie.target.value;
+    const nombreserie = nombre_serie;
     const serieSeleccionada = nombreserie.replace(/ /g,"_")
     localStorage.setItem("serie_seleccionada",serieSeleccionada);
     window.location.href = "/series/"+serieSeleccionada
 }
 
-window.addEventListener("load",function(){
+function userLog(){
     const usuariolog = localStorage.getItem("usuarioLog");
     const divLog = document.querySelector("#Log");
     if (usuariolog){
@@ -125,7 +141,7 @@ window.addEventListener("load",function(){
         let logoutdrop = document.createElement("li");
         let logoutnav = document.createElement("a");
         logoutnav.className = "dropdown-item";
-        logoutnav.href = "/";
+        logoutnav.href = "/series";
         logoutnav.id = "logOut";
         logoutnav.innerText = "Cerrar Sesion";
 
@@ -158,23 +174,16 @@ window.addEventListener("load",function(){
         btn_login.addEventListener("click",function(){
             window.location.href = "/login"
         });
-
     }
-})
+}
 
-document.addEventListener('DOMContentLoaded', async (event) =>{
-    const data_series = await cargarSeries();
-    cargarCaratulas(data_series);
+const filtro = document.getElementById("btn_filtro")
+filtro.addEventListener("click",aplicarFiltros)
 
-    const btn_filtro = document.getElementById("btn_filtro");
-    btn_filtro.addEventListener("click",aplicarFiltros);
 
-    const btnver = document.querySelectorAll("[id^='btn-ver'")
-    console.log(btnver);
-    for (let i = 0; i < btnver.length; i++) {
-        btnver[i].addEventListener("click", function(e){
-            renderizarSerie(e);
-        });
-    }
+
+window.addEventListener('load', async () =>{
+     cargarSeries();
+     userLog();
 });
 
