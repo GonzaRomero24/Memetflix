@@ -1,22 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,500;1,500&display=swap');
+
 
 :root {
     --primary-color: #023047;
-    --secondary-color: #8ECAE6;
-    --third-color: #f4a261;
     --font-family: "Roboto Condensed", sans-serif;
-    --font-color: #495057;
+    --font-color: #023047;
     --font-size: 16px;
+    --fondo-card: #E0E0E0;
+    --color-btn: #FFB703;
 }
 
 *{
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body{
-    background: var(--secondary-color);
+    background-image: url('/static/img/fondo.jpeg');
     background-position: center;
 }
 
@@ -32,16 +32,30 @@ body{
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 30px;
+
+    & .carousel-inner img {
+        width: auto;
+        height: 700px;
+        border-radius: 10px;
+    }
 }
 
-#carousel .carousel-inner img {
-    width: auto;
-    height: 700px;
-}
 
 .imgheader{
     object-fit: cover;
     object-position: 50% 20%;
+}
+
+.carousel-caption{
+    background-color: rgba(224, 224, 224, 0.8);
+    & h3{
+        color: var(--font-color);
+        font-weight: 700;
+    }
+    & p{
+        color: var(--font-color);
+        font-size: 1.3em;
+    }
 }
 
 /*------  Ultimos Estrenos  -----------*/
@@ -52,13 +66,11 @@ body{
 /*------  Navbar  -----------*/
 
 .navbar{
-    
-    background-color: var(--primary-color);                             
-}
-
-.navbar a{
-    font-size: 20px;
-    color: white;
+    background-color: var(--primary-color); 
+    & a{
+        font-size: 20px;
+        color: white;
+    }
 }
 
 #titulo{
@@ -68,37 +80,37 @@ body{
 
 .card{
     height: 484.5px;
-    background-color: var(--third-color);
+    background-color: var(--fondo-card);
     transition: all 0.3s;
-}
-.card img{
-    width: 250px;
-    border-radius: 30px;
-    padding: 10px;
-    
+
+    & img{
+        width: 250px;
+        border-radius: 30px;
+        padding: 10px; 
+    }
+
+    & h5,p{
+        font-size: 25px;
+        color: var(--font-color);
+    }
+
+    & button{
+        font-size: 30px;
+        color: black;
+        background-color: var(--color-btn);
+        border: transparent;
+        border-radius: 10px;
+    }
+
+    &:hover{
+        transform: scale(1.05);
+    }
 }
 
-.card h5,p{
-    font-size: 25px;
-    color: var(--font-color);
-}
-
-.card button{
-    font-size: 30px;
-    color: black;
-    background-color: #008CBA;
-    border: transparent;
-    border-radius: 10px;
-}
-
-
-.card:hover{
-    transform: scale(1.05);
-}
 
 h2{
     font-size: 50px;
-    color: var(--font-color);
+    color: var(--fondo-card);
     padding-top: 20px;
 }
 

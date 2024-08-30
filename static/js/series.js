@@ -43,7 +43,7 @@ function cargarCaratulas(dataseries){
     let i = 1
     dataseries.forEach(serie => {
         const div = document.createElement("div");
-        div.className = "col-12 col-lg-3 mb-5 ms-3";
+        div.className = "col-12 col-lg-3 mb-4 ms-3";
         
         const divcard = document.createElement("div");
         divcard.className = "container-fluid card align-items-center justify-content-center";
@@ -74,34 +74,16 @@ function cargarCaratulas(dataseries){
     });
 }
 
-async function ObtenerDatosWiki(nombreSerie) {
-    const url = `https://es.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(nombreSerie)}`;
-    try{
-        const respuesta = await fetch(url);
-        if (respuesta.ok){
-            const data = await respuesta.json();
-            console.log(data);
-        }else{
-            console.log("error",respuesta.status);
-        }
-    }catch(error){
-        console.log(error);
-    }
-}
-
 async function aplicarFiltros(){
-    console.log("entra")
-    const check = document.querySelectorAll(".form-check-input:checked");
-    console.log(check);
-    //const generosSeleccionados = Array.from(document.querySelectorAll(".form-check-input:checked"))
-      //                                  .map(checkbox => checkbox.value);
-    //console.log(generosSeleccionados.length);
-    //if(generosSeleccionados.length > 0){
-      //  ObtenerFiltrado(generosSeleccionados);
-    //}else{
-      //  window.location.href = "/series"
-   // }
-    
+    const check = document.querySelectorAll(".form-check-input");
+    const box_check = Array.from(check)
+        .filter(check=> check.checked)
+        .map(check=> check.value)
+    if(box_check.length > 0){
+        ObtenerFiltrado(check);
+    }else{
+        cargarSeries();
+    }    
 }
 
 function btnVer(){
@@ -115,8 +97,7 @@ function btnVer(){
 }
 
 function renderizarSerie(nombre_serie){
-    const nombreserie = nombre_serie;
-    const serieSeleccionada = nombreserie.replace(/ /g,"_")
+    const serieSeleccionada = nombre_serie.replace(/ /g,"_")
     localStorage.setItem("serie_seleccionada",serieSeleccionada);
     window.location.href = "/series/"+serieSeleccionada
 }
