@@ -10,115 +10,128 @@
     <title>Memetflix</title>
 </head>
 <body onload="cargarPeliculas()">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/añadir"><img id="logo1"  src="{{ url_for('static', filename='img/logo1.png')}}">  Memetflix</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Inicio</a>
-          </li>
-          <li class="dropdown">
-            <a class="nav-link" data-bs-toggle="dropdown" aria-expanded="false">Explorar</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/series">Series</a></li>
-              <li><a class="dropdown-item" href="/pelicula">Peliculas</a></li>
-            </ul>
-          
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Noticias</a>
-          </li>
-          <li class="nav-item" id="Log">
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container" style="background-color :white;">
-    <div class="row">
-      <div class="col-4">
-        <h2><i class="fa-solid fa-filter"></i>Filtro</h2>
-        <button type="button" class="btn btn-primary" id="btn_filtro">Aplicar Filtros</button> 
-        <h4>Genero</h4>
-        <div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Accion" id="checkAccion">
-            <label class="form-check-label" for="checkAccion">
-              Accion
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Aventura" id="checkAventura">
-            <label class="form-check-label" for="checkAventura">
-              Aventura
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Comedia" id="checkComedia">
-            <label class="form-check-label" for="checkComedia">
-              Comedia
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Drama" id="checkDrama">
-            <label class="form-check-label" for="checkDrama">
-              Drama
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Infantil" id="checkInfantil">
-            <label class="form-check-label" for="checkInfantil">
-              Infantil
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Musical" id="checkMusical">
-            <label class="form-check-label" for="checkMusical">
-              Musical
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Romance" id="checkRomance">
-            <label class="form-check-label" for="checkRomance">
-              Romance
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Ciencia Ficcion" id="checkCienciaFiccion">
-            <label class="form-check-label" for="checkCienciaFiccion">
-              Ciencia Ficcion
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Deportes" id="checkDeportes">
-            <label class="form-check-label" for="checkDeportes">
-              Deportes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Sobrenatural" id="checkSobrenatural">
-            <label class="form-check-label" for="checkSobrenatural">
-              Sobrenatural
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Terror" id="checkTerror">
-            <label class="form-check-label" for="checkTerror">
-              Terror
-            </label>
-          </div>
+  <div class="containernav">
+    <nav class="navbar navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" id="titulo" href="/añadir"><img id="logo1"  src="{{ url_for('static', filename='img/logo1.png')}}">  Memetflix</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-5">
+            <li class="nav-item ms-3">
+              <a class="nav-link" aria-current="page" href="/">Inicio</a>
+            </li>
+            <li class="dropdown ms-3">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Explorar</a>
+              <ul class="dropdown-menu bg-dark">
+                <li><a class="dropdown-item" href="/series">Series</a></li>
+                <li><a class="dropdown-item" href="/pelicula">Peliculas</a></li>
+              </ul>
+            
+            </li>
+            <li class="nav-item ms-3">
+              <a class="nav-link" href="#">Noticias</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item" id="Log">
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="col-8">
-        <div class="d-flex flex-column justify-content-center">
-          <h3 class="text-center">Peliculas</h3>
-          <div class="containerCard row" id="container-Peliculas">
-            
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="grid">
+          <div class="grid-body">
+            <div class="row">
+              <div class="filtro mt-4 mb-4 col-md-3">
+                <h2><i class="mt-3 fa-solid fa-filter"></i>Filtro</h2>
+                <hr>
+                <button type="button" class="btn btn-primary" id="btn_filtro">Aplicar Filtros</button> 
+                <h3>Genero</h3>
+                <div>
+                  <div class="form-check">
+                    <input class="form-check-input ms-3" type="checkbox" value="Accion" id="checkAccion">
+                    <label class="form-check-label ms-3" for="checkAccion">
+                      Accion
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input ms-3" type="checkbox" value="Aventura" id="checkAventura">
+                    <label class="form-check-label ms-3" for="checkAventura">
+                      Aventura
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input ms-3" type="checkbox" value="Comedia" id="checkComedia">
+                    <label class="form-check-label ms-3" for="checkComedia">
+                      Comedia
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input ms-3" type="checkbox" value="Drama" id="checkDrama">
+                    <label class="form-check-label ms-3" for="checkDrama">
+                      Drama
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input ms-3" type="checkbox" value="Infantil" id="checkInfantil">
+                    <label class="form-check-label ms-3" for="checkInfantil">
+                      Infantil
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input ms-3" type="checkbox" value="Musical" id="checkMusical">
+                    <label class="form-check-label ms-3" for="checkMusical">
+                      Musical
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input ms-3" type="checkbox" value="Romance" id="checkRomance">
+                    <label class="form-check-label ms-3" for="checkRomance">
+                      Romance
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input ms-3" type="checkbox" value="Ciencia Ficcion" id="checkCienciaFiccion">
+                    <label class="form-check-label ms-3" for="checkCienciaFiccion">
+                      Ciencia Ficcion
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input ms-3" type="checkbox" value="Deportes" id="checkDeportes">
+                    <label class="form-check-label ms-3" for="checkDeportes">
+                      Deportes
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input ms-3" type="checkbox" value="Sobrenatural" id="checkSobrenatural">
+                    <label class="form-check-label ms-3" for="checkSobrenatural">
+                      Sobrenatural
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input ms-3" type="checkbox" value="Terror" id="checkTerror">
+                    <label class="form-check-label ms-3" for="checkTerror">
+                      Terror
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <div class="d-flex flex-column justify-content-center">
+                  <h3 class="text-center">Peliculas</h3>
+                  <div class="containerCard row ms-4" id="container-Peliculas">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

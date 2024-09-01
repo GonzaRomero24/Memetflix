@@ -6,9 +6,9 @@ async function cargarPeliculas(){
         //Como tipo Peliculas
         const respuesta = await fetch("/pelicula/get_Peliculas");
         //La respuesta proveniente de la API se transforma en un json
-        const datosPeliculas = respuesta.json();
+        const datosPeliculas = await respuesta.json();
         //Retornamos el Json
-        return datosPeliculas
+        mostrarCaratulas(datosPeliculas)
     }catch(error){
         // En caso de existir un error nos mostraria por consola de la pagina web la razón del error
         console.log(error)
@@ -37,7 +37,7 @@ async function ObtenerFiltrado(generosSeleccionados) {
             //se convierte la respuesta por parte de la API en formato JSON
             const datosFiltrado = await respuesta.json();
             // Luego se envia a la funcion para poder mostrar las peliculas de los generos que fueron seleccionados
-            mostrar_filtros(datosFiltrado);
+            mostrarCaratulas(datosFiltrado);
         }
     }catch(error){
          // En caso de existir un error nos mostraria por consola de la pagina web la razón del error
@@ -47,7 +47,7 @@ async function ObtenerFiltrado(generosSeleccionados) {
 }
 
 // Funcion para poder visualizar las peliculas
-function mostrar_filtros(datosmovie){
+function mostrarCaratulas(datosmovie){
     //Obtenemos el div en donde mostraremos las peliculas
     var div_container = document.getElementById("container-Peliculas");
     //Limpiamos el contenido del div
@@ -57,29 +57,28 @@ function mostrar_filtros(datosmovie){
         // Creamos un elemento div para cada pelicula en el array
         const div = document.createElement("div")
         // Establecemos una clase para aplicar estilos de Boostrap
-        div.className = "col-6 col-md-4 col-xl-3";
+        div.className = "col-12 col-lg-3 mb-4 ms-3";
 
         // Creamos un elemento div para la Card de cada una de las peliculas
         const divcard = document.createElement('div');
         // Establecemos una clase para aplicar los estilos de Boostrap
-        divcard.className = "card align-items-center justify-content-center";
+        divcard.className = "container-fluid card align-items-center justify-content-center";
         
         // Creamos el elemento para la Caratula de la pelicula
         const caratula = document.createElement("img");
         // Asignamos el Link de la pelicula
         caratula.src = pelicula.linkCaratula;
-        // Asignamos la medida que tendra la caratula de la pelicula
-        caratula.style.width = "120px";
         //Añadimos la imagen a la card
         divcard.appendChild(caratula)
         
         const card_body_peliculas = document.createElement("div");
+        card_body_peliculas.className = "bodycard mx-auto text-center"
         const titulo_peliculas = document.createElement("h5");
         titulo_peliculas.innerText = pelicula.nombre;
         card_body_peliculas.appendChild(titulo_peliculas);
 
         const btn_ver = document.createElement("button");
-        btn_ver.className = "btn btn-primary";
+        btn_ver.className = "btn px-5 mb-1 btn-light";
         btn_ver.innerText = "ver";
         btn_ver.value = pelicula.nombre;
         card_body_peliculas.appendChild(btn_ver);
@@ -87,22 +86,33 @@ function mostrar_filtros(datosmovie){
         divcard.appendChild(card_body_peliculas)
         div.appendChild(divcard);
         div_container.appendChild(div);
+        btnVer();
     });
 }
+
+function btnVer(){
+    const btn_ver = document.querySelectorAll("#btn-ver")
+    for (const btn of btn_ver){
+        btn.addEventListener("click",()=>{
+            console.log(btn.value)
+            renderizarSerie(btn.value)
+        });
+    }
+}
 async function aplicarFiltros(){
-        const generosSeleccionados = Array.from(document.querySelectorAll(".form-check-input:checked"))
-                                            .map(checkbox => checkbox.value);
-        console.log(generosSeleccionados);
-        if(generosSeleccionados.length > 0){
-            ObtenerFiltrado(generosSeleccionados);
-        }else{
-            const datos_movie = await cargarPeliculas();
-            mostrar_filtros(datos_movie)
-        }
-        
+    const check = document.querySelectorAll(".form-check-input");
+    const box_check = Array.from(check)
+        .filter(check=> check.checked)
+        .map(check=> check.value)
+    console.log/(box_check)
+    if(box_check.length > 0){
+        ObtenerFiltrado(check);
+    }else{
+        cargarPeliculas();
+    }    
 }
 
-window.addEventListener("load",function(){
+function userLog(){
     const usuariolog = localStorage.getItem("usuarioLog");
     const divLog = document.querySelector("#Log");
     if (usuariolog){
@@ -122,7 +132,7 @@ window.addEventListener("load",function(){
         let logoutdrop = document.createElement("li");
         let logoutnav = document.createElement("a");
         logoutnav.className = "dropdown-item";
-        logoutnav.href = "/";
+        logoutnav.href = "/series";
         logoutnav.id = "logOut";
         logoutnav.innerText = "Cerrar Sesion";
 
@@ -155,13 +165,13 @@ window.addEventListener("load",function(){
         btn_login.addEventListener("click",function(){
             window.location.href = "/login"
         });
-
     }
-})
+}
 
-document.addEventListener('DOMContentLoaded', async (event) => {
-    const datos_movie = await cargarPeliculas();
-    mostrar_filtros(datos_movie)
-    const btn_filtro = document.getElementById("btn_filtro");
-    btn_filtro.addEventListener("click",aplicarFiltros);
+const filtro = document.getElementById("btn_filtro")
+filtro.addEventListener("click",aplicarFiltros)
+
+window.addEventListener('load', async () =>{
+    cargarPeliculas();
+    userLog();
 });

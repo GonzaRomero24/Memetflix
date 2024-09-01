@@ -1,13 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,500;1,500&display=swap');
+:root {
+    --primary-color: #023047;
+    --font-family: "Roboto Condensed", sans-serif;
+    --font-color: #023047;
+    --font-size: 16px;
+    --fondo-card: #E0E0E0;
+    --color-btn: #FFB703;
+}
 
 *{
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body{
-    background: rgb(39, 39, 42);
+    background-image: url('/static/img/fondo.jpeg');
     background-position: center;
 }
 
@@ -16,12 +23,53 @@ body{
     height: 50px;
 }
 
-.card{
-    transition: all 0.3s;
+.navbar{
+    background-color: var(--primary-color); 
+    & a{
+        font-size: 20px;
+        color: white;
+    }
 }
 
-.card:hover{
-    transform: scale(1.15);
+#titulo{
+    font-size: 30px;
 }
-    
-    
+
+
+.card{
+    height: 100%;
+    background-color: var(--fondo-card);
+    transition: all 0.3s;
+
+    & img{
+        width: 80%;
+        border-radius: 30px;
+        padding: 10px; 
+    }
+
+    & h5,p{
+        font-size: 25px;
+        color: var(--font-color);
+    }
+
+    & button{
+        height: 50%;
+        font-size: 1.5em;
+        color: black;
+        background-color: var(--color-btn);
+        border: transparent;
+        border-radius: 10px;
+    }
+
+    &:hover{
+        transform: scale(1.05);
+    }
+}
+.filtro{
+    background: rgba(224, 224 , 244, 0.8);
+    border-radius: 10px;
+    /*width: 15%;*/
+    & label {
+        font-size: 1.3rem;
+    }
+}
